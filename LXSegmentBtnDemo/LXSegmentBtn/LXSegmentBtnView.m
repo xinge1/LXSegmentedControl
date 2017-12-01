@@ -36,8 +36,11 @@
     self.titleFont = [UIFont systemFontOfSize:14];
 }
 
+-(void)layoutSubviews{
+    [self initView];
+}
+
 -(void)initView{
-    [self layoutIfNeeded];
     CGFloat btnW = self.bounds.size.width/_btnTitleArray.count;
     [_btnTitleArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIButton *btn = [self getBtn];
@@ -60,7 +63,6 @@
 
 -(void)setBtnTitleArray:(NSArray *)btnTitleArray{
     _btnTitleArray = btnTitleArray;
-    [self initView];
 }
 
 -(void)btnClick:(UIButton *)btn{
